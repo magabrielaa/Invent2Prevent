@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "home.apps.HomeConfig",
     "research.apps.ResearchConfig",
     "call_to_action.apps.CallToActionConfig",
+    'djf_surveys',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ],
+                'djf_surveys.context_processors.surveys_context',
+                ],
         },
     },
 ]
