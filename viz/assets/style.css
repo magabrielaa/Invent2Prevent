@@ -1,0 +1,19 @@
+* {
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+  
+textarea {
+    outline: none;
+    background-color: #ffffff;
+    color: #4d4d4d;
+    resize: none;
+    overflow: auto;
+    border: none;
+    font-size: 16px;
+  }
+
+.header{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
