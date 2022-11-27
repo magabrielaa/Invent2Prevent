@@ -13,6 +13,9 @@ def home(request):
 
     if request.method == 'POST':
         form = InputYourInfoForm(request.POST)
+        if form.is_valid():
+            i = form.save()
+            return redirect('input-detail', i.id)
     else:
         form = InputYourInfoForm()
 
@@ -22,4 +25,5 @@ def home(request):
 
 
 def input_detail(request, id):  # note the additional id parameter
-    return render(request, 'templates/input_detail.html', {'id':id})
+    user_input = Input.objects.get(id=id)
+    return render(request, 'input_detail.html', {'user_input': user_input})

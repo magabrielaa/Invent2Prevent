@@ -1,5 +1,7 @@
 from django import forms
+from home.models import Input
 
+"""
 RACE_CHOICES =(
     ("1", "White"),
     ("2", "Black"),
@@ -22,9 +24,10 @@ AGE_CHOICES =(
     ("6", "50–64"),
     ("7", "65 or older"),
 )
+"""
 
+class InputYourInfoForm(forms.ModelForm):
+   class Meta:
+     model = Input
+     fields = '__all__'
 
-class InputYourInfoForm(forms.Form):
-    race = forms.MultipleChoiceField(choices = RACE_CHOICES)
-    gender = forms.MultipleChoiceField(choices = GENDER_CHOICES)
-    age = forms.MultipleChoiceField(choices = AGE_CHOICES)
