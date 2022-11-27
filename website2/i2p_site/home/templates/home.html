@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -21,8 +22,16 @@
       <div class="v1_9"></div>
       <div class="mainContent">
         <div class="mainText">
-          <span class="v1_19">Discrimination cases is going up by 23% every single year.</span>
-          <span class="v1_20">Invent2Prevent is an innovative, experiential learning program that challenges high school and college students.</span> 
+            <div class="v1_19">          
+               <form action="" method="post" novalidate>
+                {% csrf_token %}
+                    {{ form.as_p }}
+                <input type="submit" value="Submit">
+               </form>
+               <!--  <li>{{ latest_input.gender }}</li>
+                <li>{{ latest_input.race }}</li>
+                <li>{{ latest_input.age }}</li> -->
+            </div>
         </div>
         <div class="mainImg">
           <img src="https://static-prod.adweek.com/wp-content/uploads/2021/10/disability-awareness-2021.jpg.webp" 
