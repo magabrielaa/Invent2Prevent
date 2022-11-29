@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "aboutus.apps.AboutusConfig", #newpage
     "home.apps.HomeConfig",
     "research.apps.ResearchConfig",
-    "call_to_action.apps.CallToActionConfig",
     'djf_surveys',
 ]
 

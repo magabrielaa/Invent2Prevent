@@ -22,6 +22,5 @@ urlpatterns = [
     path("aboutus/", include("aboutus.urls")),    
     path("home/", include("home.urls")),
     path("research/", include("research.urls")),
-    path("call_to_action/", include("call_to_action.urls")),
     path('surveys/', include('djf_surveys.urls')),
 ]
