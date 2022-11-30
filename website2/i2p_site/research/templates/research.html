@@ -1,38 +1,73 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 <html>
   
   <head>
-    <link rel="stylesheet" href="research.css"/>
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'research/research.css' %}"/>
     <link href="https://fonts.googleapis.com/css?family=Inria+Sans&display=swap" rel="stylesheet" />
   </head>
     <body>
-      <div class="navbar">
-        <span class="title">Invent2Prevent</span>
-        <div class="v1_2"></div>
-        <div class="sub_navbar">
+        <div class="navbar">
+            <span class="title">Invent2Prevent</span>
+            <div class="v1_2"></div>
+            <div class="sub_navbar">
 
-          <a href="../aboutus" class="v1_14">about us</a>
-          <a href="../research" class="v1_18">research</a>
-          <a href="../home" class="v1_17">home</a>
+            <a href="../aboutus" class="v1_14">about us</a>
+            <a href="../research" class="v1_18">research</a>
+            <a href="../home" class="v1_17">home</a>
 
-          </div>
-      </div>
-
-      <div class="mainContent">
-        <div class="visualizations">
-          <div class="visualizations-title">
-
-          </div>
+            </div>
         </div>
-        <div class="write-up">
-          <div class=""></div>
+
+        <div class="mainContent">
+            <div class="visualizations">
+            <div class="visualizations-title">
+                <h1>visualizations</h1>
+            </div>
+            <div style="width:20em; height: 15em; background-color: grey;"></div>
+            <div style="width:10em; height: 15em; background-color: grey;"></div>
+            <div style="width:25em; height: 20em; background-color: grey;"></div>
+            </div>
+
+            <div class="explanation">
+
+            <div class="write-up-wrapper">
+                <div class="explanation-title">
+                <h1>Anti-Disability Violence Hits Closer to Home Than You May Think</h1>
+                </div>
+                <div class="explanation-content">
+                <div class="write-up-intro">
+                    <p>This is a test introduction. This is a test introduction. This is a test introduction. This is a test introduction. This is a test introduction. This is a test introduction. </p>
+                </div>
+                <div class="write-up-body">
+                    <div style="width: 25em; height:20em; background-color:grey">
+                    Hello. This is a test
+                    </div>
+                    <div>
+                    <p>Test text. Test text. Test text. Test text. Test text. Test text. Test text. Test text. Test text. Test text. Test text. Test text. </p>
+                    </div>
+                    <div style="width: 25em; height:10em; background-color:grey">
+                    Another test. 
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="call-to-action">
+                <div class="explanation-title">
+                <h1>Call to Action</h1>
+                </div>
+                <div class="explanation-content">
+                <div>
+                    <p>CALL ACTION. ACTION CALL!! CALL ACTION. ACTION CALL!! CALL ACTION. ACTION CALL!! CALL ACTION. ACTION CALL!! CALL ACTION. ACTION CALL!! CALL ACTION. ACTION CALL!! CALL ACTION. ACTION CALL!! </p>
+                </div>
+                </div>
+            </div>
+            
         </div>
-        <div class="call-to-action"></div>
-      </div>
+
     </body>
-      </html> 
-      <br/><br/> 
-      
-      <style>
-</style>
+</html> 

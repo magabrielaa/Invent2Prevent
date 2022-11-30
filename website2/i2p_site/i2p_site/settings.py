@@ -120,6 +120,7 @@ STATIC_URL = "static/"
 """STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / 'aboutus/static/aboutus/',
+    BASE_DIR / 'research/static/research/',
 ]"""
 
 # Default primary key field type

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+  
+  <head>
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'research/research.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Inria+Sans&display=swap" rel="stylesheet" />
+  </head>
+    <body>
+        <div class="navbar">
+            <span class="title">Invent2Prevent</span>
+            <div class="v1_2"></div>
+            <div class="sub_navbar">
+
+            <a href="../aboutus" class="v1_14">about us</a>
+            <a href="../research" class="v1_18">research</a>
+            <a href="../home" class="v1_17">home</a>
+
+            </div>
+        </div>
+
+        <div class="mainContent">
+            {% block content %}{% endblock %}
+        </div>
+
+    </body>
+</html> 
