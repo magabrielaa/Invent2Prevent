@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "aboutus.apps.AboutusConfig", #newpage
     "home.apps.HomeConfig",
     "research.apps.ResearchConfig",
-    "call_to_action.apps.CallToActionConfig",
     'djf_surveys',
 ]
 
@@ -116,6 +115,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+
+# define a set of places to look for static files
+"""STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    BASE_DIR / 'aboutus/static/aboutus/',
+]"""
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
