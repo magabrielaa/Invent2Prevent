@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+}  
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    padding: 14px 16px;
+}
+
+.mainContent{
+    display: flex;
+    flex-direction: row;
+}
+  
+.mainText{
+    width: 35%
+}
+  
+.sub_navbar{
+    display: flex;
+    flex-direction: row-reverse;
+}
+  
+.v1_14 {
+    text-decoration: none;
+    width: 131px;
+    color: rgba(153,214,234,1);
+    font-family: Inria Sans;
+    font-weight: Regular;
+    font-size: 35px;
+    opacity: 1;
+    text-align: left;
+    margin: 1em;
+}
+  
+.v1_16 {
+    width: 194px;
+    color: rgba(153,214,234,1);
+    font-family: Inria Sans;
+    font-weight: Regular;
+    font-size: 35px;
+    opacity: 1;
+    text-align: left;
+    margin: 1em;
+    text-decoration: none;
+}
+
+.v1_18 {
+    width: 130px;
+    color: rgba(153,214,234,1);
+    font-family: Inria Sans;
+    font-weight: Regular;
+    font-size: 35px;
+    opacity: 1;
+    text-align: left;
+    text-decoration: none;
+    margin: 1em;
+}
+  
+.v1_17 {
+    width: 87px;
+    color: rgba(153,214,234,1);
+    font-family: Inria Sans;
+    font-weight: Regular;
+    font-size: 35px;
+    opacity: 1;
+    text-align: left;
+    margin: 1em;
+    text-decoration: none;
+}
+  
+.title {
+    color: rgba(103,152,192,1);
+    font-family: Inria Sans;
+    font-size: 35px;
+    margin: 1em;
+    margin-right:20%;
+}
+
+.visualizations {
+    
+}
+
+.write-up {
+
+}
+
+.call-to-action {
+
+}
