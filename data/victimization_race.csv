@@ -1,5 +1,9 @@
-﻿Race,Rate
-White,2.78
-Black,4.52
-Hispanic,5.7
-Other,7.33
+﻿Race,Disability Status,Value
+White,Persons with disabilities,45.1
+White,Persons without disabilities,11.7
+Black,Persons with disabilities,39
+Black,Persons without disabilities,12.5
+Hispanic,Persons with disabilities,55.3
+Hispanic,Persons without disabilities,12.3
+Other,Persons with disabilities,56.5
+Other,Persons without disabilities,12.2
