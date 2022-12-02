@@ -26,9 +26,24 @@ race = pd.read_csv("../data/race.csv")
 age = pd.read_csv("../data/age.csv")
 disability_type = pd.read_csv("../data/disability_type.csv")
 victimization_rate = pd.read_csv("../data/victimization_rate.csv")
-crime_type = pd.read_csv("../data/crime_type.csv")
-victimization_sex = pd.read_csv("../data/victimization_sex.csv")
+
+crime_type = pd.read_csv("../data/victimization_by_crime_type.csv")
+victimization_sex = pd.read_csv("../data/victimization_by_sex.csv")
 victimization_race = pd.read_csv("../data/victimization_race.csv")
+
+victimization_age = pd.read_csv("../data/victimization_age.csv")
+hearing = pd.read_csv("../data/hearing.csv")
+vision = pd.read_csv("../data/vision.csv")
+cognitive = pd.read_csv("../data/cognitive.csv")
+ambulatory = pd.read_csv("../data/ambulatory.csv")
+self_care = pd.read_csv("../data/self-care.csv")
+independent = pd.read_csv("../data/independent.csv")
+reports_disability = pd.read_csv("../data/reports_disability.csv")
+reports_crime = pd.read_csv("../data/reports_crime.csv")
+who_notified = pd.read_csv("../data/who_notified.csv")
+victim_offender  = pd.read_csv("../data/victim_offender.csv")
+perc_victimizations = pd.read_csv("../data/perc_victimizations.csv")
+perc_age = pd.read_csv("../data/perc_age.csv")
 
 with open("../data/us-state-boundaries.geojson") as f:
     us_map = geojson.load(f)
@@ -292,45 +307,301 @@ chart16.update_traces(marker=dict(size=10),
                                               "Number: %{y:,.0f}<br>")
 
 # Bar Chart - Victimization Rates by Crime Type
-chart17 = px.bar(crime_type, x=crime_type['Type of crime'], y=crime_type.columns,
-                title = "Victimization Rates Comparison by Crime Type <br> Persons with and without Disabilities (2017-2019)",
-                height=600, color_discrete_sequence=px.colors.qualitative.Pastel,)
+chart17 = px.bar(crime_type, x=crime_type['Crime'], y=crime_type['Value'],
+                title = "Disability Victimization Rates <br> by Type of Crime and Disability Status(2017-2019)",
+                height=600, 
+                color='Disability Status',
+                color_discrete_sequence=px.colors.qualitative.Pastel,
+                barmode = 'group')
 chart17.update(layout=dict(title=dict(x=0.5)))
-chart17.update_traces(hovertemplate= "Rate: %{y}<br>")
+chart17.update_traces(hovertemplate= "%{x}: %{y} %<br>")
 chart17.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True))
-chart17.update_layout(yaxis={'categoryorder':'total descending'})
+chart17.update_layout(yaxis={'categoryorder':'total ascending'})
 chart17.update_layout(title_x=0.5, legend_title_text='Category')
 chart17.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
                     xaxis_title="Type of Crime", yaxis_title="Victimization Rate")
 
-
 # Bar Chart - Victimization Rates by Sex
-chart18 = px.bar(victimization_sex, x=victimization_sex['Sex'], y=victimization_sex['Rate'],
-                title = "Disability Victimization Rates <br> by Sex (2017-2019)",
+
+chart18 = px.bar(victimization_sex, x=victimization_sex['Sex'], y=victimization_sex['Value'],
+                title = "Disability Victimization Rates <br> by Sex and Disability Status(2017-2019)",
                 height=600, 
-                color='Sex',
-                color_discrete_sequence=px.colors.qualitative.Set2,)
+                color='Disability Status',
+                color_discrete_sequence=px.colors.qualitative.Pastel,
+                barmode = 'group')
 chart18.update(layout=dict(title=dict(x=0.5)))
-chart18.update_traces(hovertemplate= "Rate: %{y}<br>")
+chart18.update_traces(hovertemplate= "%{x}: %{y} %<br>")
 chart18.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True))
-chart18.update_layout(yaxis={'categoryorder':'total descending'})
+chart18.update_layout(yaxis={'categoryorder':'total ascending'})
 chart18.update_layout(title_x=0.5, legend_title_text='Category')
 chart18.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
                     xaxis_title="Sex", yaxis_title="Victimization Rate")
 
 # Bar Chart - Victimization Rates by Race
-chart19 = px.bar(victimization_race, x=victimization_race['Race'], y=victimization_race['Rate'],
-                title = "Disability Victimization Rates <br> by Race (2017-2019)",
+chart19 = px.bar(victimization_race, x=victimization_race['Race'], y=victimization_race['Value'],
+                title = "Disability Victimization Rates <br> by Race and Disability Status(2017-2019)",
                 height=600, 
-                color='Race',
-                color_discrete_sequence=px.colors.qualitative.Set2,)
+                color='Disability Status',
+                color_discrete_sequence=px.colors.qualitative.Pastel,
+                barmode = 'group')
 chart19.update(layout=dict(title=dict(x=0.5)))
-chart19.update_traces(hovertemplate= "Rate: %{y}<br>")
+chart19.update_traces(hovertemplate= "%{x}: %{y} %<br>")
 chart19.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True))
-chart19.update_layout(yaxis={'categoryorder':'total descending'})
+chart19.update_layout(yaxis={'categoryorder':'total ascending'})
 chart19.update_layout(title_x=0.5, legend_title_text='Category')
 chart19.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
                     xaxis_title="Race", yaxis_title="Victimization Rate")
+
+
+# Bar Chart - Victimization Rates by Age
+chart20 = px.bar(victimization_age, x=victimization_age['Age'], y=victimization_age['Value'],
+                title = "Victimization Rates per 1.000 Persons by Age<br> Persons with and without Disabilities (2017-2019)",
+                height=600, 
+                color='Disability Status',
+                color_discrete_sequence=px.colors.qualitative.Pastel,
+                barmode = 'group')
+chart20.update(layout=dict(title=dict(x=0.5)))
+chart20.update_traces(hovertemplate= "%{x}: %{y} %<br>")
+chart20.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True))
+chart20.update_layout(yaxis={'categoryorder':'total ascending'})
+chart20.update_layout(title_x=0.5, legend_title_text='Category')
+chart20.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    xaxis_title="Age", yaxis_title="Victimization Rate")
+
+
+# Horizontal Bar Chart - Victimization Rates by Hearing Disability
+chart21 = px.bar(hearing, x=hearing['Type of crime'], y=hearing["Rate"],
+                title = "Victimization Rates <br> by Hearing Disability (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                )
+chart21.update(layout=dict(title=dict(x=0.5)))
+chart21.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart21.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    yaxis_title="Victimization Rate", xaxis_title="Hearing Disability")
+chart21.update_layout(yaxis={'categoryorder':'total ascending'})
+chart21.update_yaxes(range=[0, 85])
+
+
+# Horizontal Bar Chart - Victimization Rates by Vision Disability
+chart22 = px.bar(vision, x=vision['Type of crime'], y=vision["Rate"],
+                title = "Victimization Rates <br> by Vision Disability (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                )
+chart22.update(layout=dict(title=dict(x=0.5)))
+chart22.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart22.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    yaxis_title="Victimization Rate", xaxis_title="Vision Disability")
+chart22.update_layout(yaxis={'categoryorder':'total ascending'})
+chart22.update_yaxes(range=[0, 85])
+
+
+# Horizontal Bar Chart - Victimization Rates by Cognitive Disability
+chart23 = px.bar(cognitive, x=cognitive['Type of crime'], y=cognitive["Rate"],
+                title = "Victimization Rates <br> by Cognitive Disability (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                )
+chart23.update(layout=dict(title=dict(x=0.5)))
+chart23.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart23.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    yaxis_title="Victimization Rate", xaxis_title="Cognitive Disability")
+chart23.update_layout(yaxis={'categoryorder':'total ascending'})
+chart23.update_yaxes(range=[0, 85])
+
+
+# Horizontal Bar Chart - Victimization Rates by Ambulatory Disability
+chart24 = px.bar(ambulatory, x=ambulatory['Type of crime'], y=ambulatory["Rate"],
+                title = "Victimization Rates <br> by Ambulatory Disability (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+               )
+chart24.update(layout=dict(title=dict(x=0.5)))
+chart24.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart24.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    yaxis_title="Victimization Rate", xaxis_title="Ambulatory Disability")
+chart24.update_layout(yaxis={'categoryorder':'total ascending'})
+chart24.update_yaxes(range=[0, 85])
+
+# Horizontal Bar Chart - Victimization Rates by Self-Care Disability
+chart25 = px.bar(self_care, x=self_care['Type of crime'], y=self_care["Rate"],
+                title = "Victimization Rates <br> by Self-Care Disability (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                )
+chart25.update(layout=dict(title=dict(x=0.5)))
+chart25.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart25.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    yaxis_title="Victimization Rate", xaxis_title="Self-Care Disability")
+chart25.update_layout(yaxis={'categoryorder':'total ascending'})
+chart25.update_yaxes(range=[0, 85])
+
+# Horizontal Bar Chart - Victimization Rates by Independent Living Disability
+chart26 = px.bar(independent, x=independent['Type of crime'], y=independent["Rate"],
+                title = "Victimization Rates <br> by Independent Living Disability (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                )
+chart26.update(layout=dict(title=dict(x=0.5)))
+chart26.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart26.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    yaxis_title="Victimization Rate", xaxis_title="Independent Living Disability")
+chart26.update_layout(yaxis={'categoryorder':'total ascending'})
+chart26.update_yaxes(range=[0, 85])
+
+# Horizontal Bar Chart - Police Reports by Disability
+chart28 = px.bar(reports_disability, y=reports_disability['Disability'], x=reports_disability["Rate"],
+                title = "Violent Crime Reported to Police <br> by Disability (2017-2019)",
+                height=600, 
+                color ='Disability',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                orientation='h')
+chart28.update(layout=dict(title=dict(x=0.5)))
+chart28.update_traces(hovertemplate= "Rate: %{x}<br>")
+chart28.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    xaxis_title="Violent Crime Reported", yaxis_title="Disability")
+chart28.update_layout(yaxis={'categoryorder':'total ascending'})
+chart26.update_yaxes(range=[0, 60])
+
+
+
+# Bar Chart - Police Reports by Type of Crime
+
+chart30 = px.bar(reports_crime, x=reports_crime['Crime'], y=reports_crime['Value'],
+                title = "Violent Crime Reported to Police <br> Persons with and without Disabilities (2017-2019)",
+                height=600, 
+                color='Disability Status',
+                color_discrete_sequence=px.colors.qualitative.Pastel,
+                barmode = 'group')
+chart30.update(layout=dict(title=dict(x=0.5)))
+chart30.update_traces(hovertemplate= "%{x}: %{y} %<br>")
+chart30.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True))
+chart30.update_layout(yaxis={'categoryorder':'total ascending'})
+chart30.update_layout(title_x=0.5, legend_title_text='Category')
+chart30.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    xaxis_title="Type of Crime", yaxis_title="Victimization Crime Reported")
+
+# Bar Chart - Police Reports by Type of Crime
+chart31 = px.bar(who_notified, x=who_notified['Person who notified police'], y=who_notified.columns,
+                title = "Person Who Notified Police Comparison <br> Persons with and without Disabilities (2017-2019)",
+                height=600, color_discrete_sequence=px.colors.qualitative.Pastel,)
+chart31.update(layout=dict(title=dict(x=0.5)))
+chart31.update_traces(hovertemplate= "Rate: %{y}<br>")
+chart31.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True))
+chart31.update_layout(yaxis={'categoryorder':'total descending'})
+chart31.update_layout(title_x=0.5, legend_title_text='Category')
+chart31.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    xaxis_title="Person Who Notified Police", yaxis_title="Rate")
+
+
+# Victim-Offender Relationship, People with Disabilities
+chart32 = px.pie(victim_offender, values = "Persons with disabilities", names ="Victim-offender relationship",
+               title="Victim-Offender Relationship, <br>People with Disabilities (2017-2019)",
+                height = 600, color_discrete_sequence=px.colors.qualitative.Pastel)
+chart32.update(layout=dict(title=dict(x=0.5)))
+chart32.update_traces(textposition='inside', textinfo='percent')
+chart32.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)')
+chart32.update_traces(textposition='inside',
+                      textinfo='percent',
+                      hovertemplate= '<b>%{label}</b><br><br>' +
+                                    "%{value:,.0f}%<br>")
+
+# Victim-Offender Relationship, People without Disabilities
+chart33 = px.pie(victim_offender, values = "Persons without disabilities", names ="Victim-offender relationship",
+               title="Victim-Offender Relationship, <br>People without Disabilities (2017-2019)",
+                height = 600, color_discrete_sequence=px.colors.qualitative.Pastel)
+chart33.update(layout=dict(title=dict(x=0.5)))
+chart33.update_traces(textposition='inside', textinfo='percent')
+chart33.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)')
+chart33.update_traces(textposition='inside',
+                      textinfo='percent',
+                      hovertemplate= '<b>%{label}</b><br><br>' +
+                                    "%{value:,.0f}%<br>")
+
+# Horizontal Bar Chart - Victimization Rates by Independent Living Disability
+chart34 = px.bar(perc_victimizations, y=perc_victimizations['Type of crime'], x=perc_victimizations["Percent of violent victimizations"],
+                title = "Percent of Violent Victimizations Against <br>Persons with Disabilities, by Type of Crime (2017-2019)",
+                height=600, 
+                color= 'Type of crime',
+                color_discrete_sequence=px.colors.qualitative.Set2,
+                orientation='h')
+chart34.update(layout=dict(title=dict(x=0.5)))
+chart34.update_traces(hovertemplate= "Percentage: %{x}<br>")
+chart34.update_layout(yaxis=dict(showgrid=False, showline=False, showticklabels=True),
+                      showlegend=False, title_x=0.5, legend_title_text='Category',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)',
+                    xaxis_title="Percent of violent victimizations", yaxis_title="Type of crime")
+chart34.update_layout(yaxis={'categoryorder':'total ascending'})
+
+
+# Percent of victimization by Age, People without Disabilities
+chart35 = px.pie(perc_age, values = "Persons with disabilities", names ="Age",
+               title="Percent of Violent Victimization by Age, <br>People with Disabilities (2017-2019)",
+                height = 600, color_discrete_sequence=px.colors.qualitative.Pastel)
+chart35.update(layout=dict(title=dict(x=0.5)))
+chart35.update_traces(textposition='inside', textinfo='percent')
+chart35.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)')
+chart35.update_traces(textposition='inside',
+                      textinfo='percent',
+                      hovertemplate= '<b>%{label}</b><br><br>' +
+                                    "%{value:,.0f}%<br>")
+
+# Percent of victimization by Age, People withoutout Disabilities
+chart36 = px.pie(perc_age, values = "Persons without disabilities", names ="Age",
+               title="Percent of Violent Victimization by Age, <br>People without Disabilities (2017-2019)",
+                height = 600, color_discrete_sequence=px.colors.qualitative.Pastel)
+chart36.update(layout=dict(title=dict(x=0.5)))
+chart36.update_traces(textposition='inside', textinfo='percent')
+chart36.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)')
+chart36.update_traces(textposition='inside',
+                      textinfo='percent',
+                      hovertemplate= '<b>%{label}</b><br><br>' +
+                                    "%{value:,.0f}%<br>")
+
+# Who Notified Crime, People without Disabilities
+chart37 = px.pie(who_notified, values = "Persons with disabilities", names ="Person who notified police",
+               title="Person who Notified Police of Violent Crime, <br>People with Disabilities (2017-2019)",
+                height = 600, color_discrete_sequence=px.colors.qualitative.Pastel)
+chart37.update(layout=dict(title=dict(x=0.5)))
+chart37.update_traces(textposition='inside', textinfo='percent')
+chart37.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)')
+chart37.update_traces(textposition='inside',
+                      textinfo='percent',
+                      hovertemplate= '<b>%{label}</b><br><br>' +
+                                    "%{value:,.0f}%<br>")
+
+# Who Notified Crime, People withoutout Disabilities
+chart38 = px.pie(who_notified, values = "Persons without disabilities", names ="Person who notified police",
+               title="Person who Notified Police of Violent Crime, <br>People without Disabilities (2017-2019)",
+                height = 600, color_discrete_sequence=px.colors.qualitative.Pastel)
+chart38.update(layout=dict(title=dict(x=0.5)))
+chart38.update_traces(textposition='inside', textinfo='percent')
+chart38.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)',paper_bgcolor='rgba(0, 0, 0, 0)')
+chart38.update_traces(textposition='inside',
+                      textinfo='percent',
+                      hovertemplate= '<b>%{label}</b><br><br>' +
+                                    "%{value:,.0f}%<br>")
 
 
 # Start the app
@@ -410,48 +681,34 @@ app.layout = html.Div(children=[
                 html.Div(children = dcc.Graph(
                     id = 'victimization_rate',
                     figure = chart16),
-                    style={'width': '60%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    style={'width': '100%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
                     'padding-bottom': '1%'}),
+                
+                html.Div(dcc.Textarea(
+                    value = "Note: Comparison group with rates calculated with population data from the American Community Survey (ACS) for persons with disabilities are compared to age-adjusted rates for persons without disabilities.",
+                    style={'fontSize': "15px", 'float': 'left', 'display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'font-style': 'italic', 'font-weight': 'bold', 'width': '80%', 'height': '100px',
+                        'color':'#4d4d4d', 'padding-left' : '2%'},
+                    readOnly = True)),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Appendix table 2.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '80%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+
 
                 html.Div(children = dcc.Graph(
                     id = 'crime_type',
                     figure = chart17),
-                    style={'width': '40%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    style={'width': '100%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
                     'padding-bottom': '1%'}),
 
                 html.Div(dcc.Textarea(
-                value = "Note: Comparison group with rates calculated with population data from the American Community Survey (ACS) for persons with disabilities are compared to age-adjusted rates for persons without disabilities.",
-                style={'fontSize': "15px", 'float': 'left', 'display': 'flex', 'flex-direction': 'column',
-                    'font-family': 'Montserrat', 'font-style': 'italic', 'font-weight': 'bold', 'width': '46%', 'height': '100px',
-                    'color':'#4d4d4d', 'padding-left' : '2%'},
-                readOnly = True)),
-
-
-                html.Div(dcc.Textarea(
-                value = "",
-                style={'fontSize': "15px", 'float': 'left', 'display': 'flex', 'flex-direction': 'column',
-                    'font-family': 'Montserrat', 'font-style': 'italic', 'font-weight': 'bold', 'width': '50%',
-                    'color':'#4d4d4d'},
-                readOnly = True)),
-
-                html.Br(), 
-                html.Br(), 
-                html.Br(), 
-                html.Br(), 
-                html.Br(), 
-
-                html.Div(dcc.Textarea(
-                value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Appendix table 2.',
-                style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
-                    'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
-                readOnly = True)),
-
-                html.Div(dcc.Textarea(
-                value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Appendix table 3.",
-                style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
-                    'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
-                readOnly = True)),
-
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 1.",
+                    style={'fontSize': "14px", 'float': 'left','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '80%', 'color':'#4d4d4d'},
+                    readOnly = True)),
 
                 html.Br(), 
                 html.Br(), 
@@ -471,17 +728,251 @@ app.layout = html.Div(children=[
 
                 
                 html.Div(dcc.Textarea(
-                value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Appendix table 5.',
+                value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 3.',
                 style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
                     'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
                 readOnly = True)),
 
                 html.Div(dcc.Textarea(
-                value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Appendix table 5.",
+                value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 3.",
                 style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
                     'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
                 readOnly = True)),
 
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_age',
+                    figure = chart20),
+                    style={'width': '100%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 4',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '90%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_hearing',
+                    figure = chart21),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_independent',
+                    figure = chart26),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 5.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Div(dcc.Textarea(
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 5.",
+                    style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
+                    readOnly = True)),
+                
+                
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_vision',
+                    figure = chart22),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+    
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_cognitive',
+                    figure = chart23),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 5.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Div(dcc.Textarea(
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 5.",
+                    style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
+                    readOnly = True)),
+                
+                
+                html.Br(), 
+                html.Br(), 
+
+
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_ambulatory',
+                    figure = chart24),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                
+                html.Div(children = dcc.Graph(
+                    id = 'vic_rate_self_care',
+                    figure = chart25),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 5.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Div(dcc.Textarea(
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 5.",
+                    style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
+                    readOnly = True)),
+                
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'reports_disability',
+                    figure = chart28),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+                
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 7.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+ 
+                
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'reports_crime_type',
+                    figure = chart30),
+                    style={'width': '70%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 8.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '70%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'victim_offender_disability',
+                    figure = chart32),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(children = dcc.Graph(
+                    id = 'victim_offender_without_disability',
+                    figure = chart33),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 6.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Div(dcc.Textarea(
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 6.",
+                    style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
+                    readOnly = True)),
+                
+                
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'perc_victimization_disability',
+                    figure = chart34),
+                    style={'width': '70%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 2.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '80%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Br(), 
+                html.Br(), 
+
+                html.Div(children = dcc.Graph(
+                    id = 'perc_age_disability',
+                    figure = chart35),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(children = dcc.Graph(
+                    id = 'perc_age_without_disability',
+                    figure = chart36),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 4.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Div(dcc.Textarea(
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 4.",
+                    style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
+                    readOnly = True)),
+                
+                
+                html.Br(), 
+                html.Br(), 
+
+
+                html.Div(children = dcc.Graph(
+                    id = 'who_notified_disability',
+                    figure = chart37),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(children = dcc.Graph(
+                    id = 'who_notified_without_disability',
+                    figure = chart38),
+                    style={'width': '50%', 'display': 'inline-block', 'font-family': 'Montserrat', 'padding-top': '1%', 
+                    'padding-bottom': '1%'}),
+
+                html.Div(dcc.Textarea(
+                    value = 'Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 9.',
+                    style={'fontSize': "14px", 'float': 'left','margin': 'auto','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat','width': '46%','color':'#4d4d4d','padding-left' : '2%'} ,
+                    readOnly = True)),
+                
+                html.Div(dcc.Textarea(
+                    value = "Source: Bureau of Justice Statistics, Crime Against Persons with Disabilities, 2009-2019 - Statistical Tables NCJ 301367. Table 9.",
+                    style={'fontSize': "14px", 'float': 'right','display': 'flex', 'flex-direction': 'column',
+                        'font-family': 'Montserrat', 'width': '50%', 'color':'#4d4d4d'},
+                    readOnly = True)),
+                
+                
+                html.Br(), 
+                html.Br(), 
 
 
                 html.Div(children = dcc.Graph(
