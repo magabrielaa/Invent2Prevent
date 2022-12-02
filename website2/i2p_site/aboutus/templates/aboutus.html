@@ -25,7 +25,7 @@
         
       .mainContent{
           display: flex;
-          flex-direction: row;
+          flex-direction:  column;
       }
         
       .mainText{
@@ -162,6 +162,7 @@
         padding-left:5%;
         padding-right:5%;
         display: flex;
+        flex-direction: column;
         width:100%;
         height:100%;
       }
@@ -173,6 +174,8 @@
       }
 
       .team-card {
+        width: 50%;
+        padding: 20px;
         font-size: 1.5em;
         margin:1em;
         display: flex;
@@ -181,75 +184,140 @@
         align-items: center;
       }
 
+      .team-text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+      }
+
+      team-img {
+        width: 30%;
+        align-items: left;
+      }
+
+      .name-head {
+        padding: 20px;
+        font-weight: bold;
+        font-size: 3em;
+      }
+
+      .name-text {
+        padding: 20px;
+        font-size: 1em;
+        color: black;
+      }
+
+      .team-row {
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+      }
+
     </style>
   </head>
 
   <body>
     <div class="navbar">
       <span class="v1_15">Invent2Prevent</span>
-      
       <div class="v1_2"></div>
-      
       <div class="sub_navbar">
         <a href="../aboutus" class="v1_14">about us</a>
         <a href="../research" class="v1_18">research</a>
         <a href="../home" class="v1_17">home</a>
       </div>
     </div>
-    
-    <div class="v1_9"></div>
 
     <div class="mainContent">
       <div class="about-us-flex">
-        <div class="mainText">
-          <div style="margin-top: 50%;">
-            <div class="v1_19">Our Team</div>
-            <div class="v1_20">This website was built and researched for by a team of students at the University of Chicago. </div> 
-          </div>
+
+        <div>
+          <div class="v1_19">Our Team</div>
+          <div class="v1_20">This website was built and researched for by a team of students at the University of Chicago. </div> 
         </div>
 
-        <div class="team">
-          <div class="team-flex">
+        <div>
+          <div class="team-row">
             <div class="team-card">
-              <img src="website2/i2p_site/aboutus/templates/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Chaplin</div>
-            </div>
-            <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Gabriela</div>
-            </div>
-            <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Irina</div>
-            </div>
-            <div class="team-card">
+              <div class="team-img">
               {% load static %}
-                <img src="{% static 'aboutus/jay.jpg' %}" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Jay</div>
-            </div>
+                <img src="{% static 'aboutus/Irina Lee.jpeg' %}" width=200 height=200px padding = 20px style="border-radius: 50%" alt="jay">
+              </div>
+              <div class="team-text">
+                <div class="name-head">Irina</div>
+                <div class="name-text">
+                  I am a third-year undergraduate at UChicago majoring in Computer Science and Economics leading UChicago's Invent2Prevent team. In my free time, I love reading and playing an instrument called the carillon!</div>
+                </div>
+             </div>
+
+
             <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Jihee</div>
-            </div>
-            <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Meena</div>
-            </div>
-            <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Nicole</div>
-            </div>
-            <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Nikhil</div>
-            </div>
-            <div class="team-card">
-              <img src="https://www.w3schools.com/images/w3schools_green.jpg" width=125px height=125px style="border-radius: 50%" alt="jay">
-              <div>Ranya</div>
+              <div class="team-img">
+              {% load static %}
+                <img src="{% static 'aboutus/Nicole Yip.jpg' %}" width=200 height=200px padding = 20px style="border-radius: 50%" alt="jay">
+              </div>
+              <div class="team-text">
+                <div class="name-head">Nicole</div>
+                <div class="name-text">
+                  I'm an MA candidate in UChicago's Digital Studies program with a background in government and data analysis. As part of the policy team, I research related federal and state policies and connect them to the data visualizations produced by the data science team.</div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+ 
+          <div>
+            <div class="team-row">
+              <div class="team-card">
+                <div class="team-img">
+                {% load static %}
+                  <img src="{% static 'aboutus/Chaplin.jpg' %}" width=200 height=200px padding = 20px style="border-radius: 50%" alt="jay">
+                </div>
+                <div class="team-text">
+                  <div class="name-head">Chaplin</div>
+                  <div class="name-text">
+                    Hi I am Chaplin, and I am a current sophomore studying Computer Science at University of Chicago. I like creating new technical solutions, producing music, and reading science fictions!</div>
+                  </div>
+               </div>
+  
+  
+              <div class="team-card">
+                <div class="team-img">
+                {% load static %}
+                  <img src="{% static 'aboutus/jay.jpg' %}" width=200 height=200px padding = 20px style="border-radius: 50%" alt="jay">
+                </div>
+                <div class="team-text">
+                  <div class="name-head">Jay</div>
+                  <div class="name-text">
+                    I am a first-year at the College majoring in physics. I have some background in web development and data visualization, so I worked on the software engineering team here to build this website. </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="team-row">
+                <div class="team-card">
+                  <div class="team-img">
+                  {% load static %}
+                    <img src="{% static 'aboutus/Ranya.jpg' %}" width=200 height=200px padding = 20px style="border-radius: 50%" alt="jay">
+                  </div>
+                  <div class="team-text">
+                    <div class="name-head">Ranya</div>
+                    <div class="name-text">
+                      I am a first-year undergraduate student at The University of Chicago, studying computer science and public policy. As a member of the policy sub-team, I have been researching and writing about anti-disability legislation by state in the U.S. and the actions that people can take to help anti-disability violence. </div>
+                    </div>
+                 </div>
+    
+  
+              </div>
+
+
+
       </div>
+
+
+
     </div>
   </body>
 </html> 
