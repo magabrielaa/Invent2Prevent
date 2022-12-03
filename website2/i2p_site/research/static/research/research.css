@@ -105,9 +105,9 @@ body {
 
 .explanation {
     width:100%;
-    padding-left:20%;
-    padding-right:20%;
     display: flex;
+    padding-left:5%;
+    padding-right:5%;
     flex-direction: column;
     align-items: center;
     gap: 2em;
