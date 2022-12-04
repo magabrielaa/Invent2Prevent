@@ -1,7 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from home.models import Input
 
 
-def research(request):
-    return render(request, 'research.html')
+
+def research(request, id=None):
+    if(id==None):
+        return render(request, 'research.html')
+    user_input = Input.objects.get(id=id)
+    return render(request, 'research.html', {'user_input': user_input})
 

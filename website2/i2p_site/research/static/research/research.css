@@ -10,6 +10,14 @@ body {
     font-size: 14px;
 }  
 
+.center {
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
 .navbar{
     display: flex;
     flex-direction: row;
@@ -27,7 +35,7 @@ body {
   
 .sub_navbar{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
   
 .v1_14 {

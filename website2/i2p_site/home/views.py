@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from home.models import Input
 from home.forms import InputYourInfoForm
-from django.core.mail import send_mail
 from django.shortcuts import redirect
 
 def home(request):
@@ -15,7 +14,7 @@ def home(request):
         form = InputYourInfoForm(request.POST)
         if form.is_valid():
             i = form.save()
-            return redirect('input-detail', i.id)
+            return redirect('research', i.id)
     else:
         form = InputYourInfoForm()
 
