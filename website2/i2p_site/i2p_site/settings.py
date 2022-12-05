@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-8wxan_j=e3#hnd5w#a5o@a0)0$6zqxw8g5xfbe=6y9s48_th&x"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['disableviolence.pythonanywhere.com']
 
 
 # Application definition
@@ -114,7 +114,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = "/home/DisableViolence/Invent2Prevent/website2/i2p_site/static"
 
 # define a set of places to look for static files
 """STATICFILES_DIRS = [
