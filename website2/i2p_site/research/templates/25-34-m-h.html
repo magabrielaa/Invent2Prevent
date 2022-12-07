@@ -1,5 +1,4 @@
 {% load static %}
-{% get_static_prefix %}
 
 <!DOCTYPE html>
 
@@ -69,6 +68,15 @@
                         </p></div>
 
                         <!--customized data--> 
+                        
+                        {% load static %}
+                        <img src= "{% static 'research/used_viz/comparative/age/25-34.png' %}" width=300 height=300 padding = 100px alt="" >
+                        {% load static %}
+                        <img src= "{% static 'research/used_viz/comparative/race/hispanic.png' %}" width=300 height=300 padding = 100px alt="" >
+                        {% load static %}
+                        <img src= "{% static 'research/used_viz/comparative/gender/male.jpg' %}" width=300 height=300 padding = 100px alt="" >
+
+
                         <div><p>
                             If you’re curious, here are the comprehensive graphs for violence against people with disabilities versus people without disabilities along age, race, and gender lines
                         </p></div>
