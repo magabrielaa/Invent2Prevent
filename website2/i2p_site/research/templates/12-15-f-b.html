@@ -72,7 +72,7 @@
                         {% load static %}
                         <img src= "{% static 'research/used_viz/comparative/age/12-15.jpg' %}" width=300 height=300 padding = 100px alt="" >
                         {% load static %}
-                        <img src= "{% static 'research/used_viz/comparative/race/white.png' %}" width=300 height=300 padding = 100px alt="" >
+                        <img src= "{% static 'research/used_viz/comparative/race/black.png' %}" width=300 height=300 padding = 100px alt="" >
                         {% load static %}
                         <img src= "{% static 'research/used_viz/comparative/gender/female.jpg' %}" width=300 height=300 padding = 100px alt="" >
 
@@ -178,7 +178,17 @@
                                 </ol>
 
 
-                                In your state of [name the state], we identified existing legislation as well as organizations you can support.
+                                In all 50 states, we identified existing legislation as well as organizations you can support.
+
+                                <div id="CSVTable"></div>
+                                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                                <script src="//jquerycsvtotable.googlecode.com/files/jquery.csvToTable.js"></script>
+
+                                <script>
+                                    $(function() {
+                                        $('#CSVTable').CSVToTable('LegislativeResearchSheet1.csv.csv');
+                                    });
+                                </script>
 
                             </p>
                         </div>

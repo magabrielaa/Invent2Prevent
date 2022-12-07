@@ -1,0 +1,191 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+
+<html>
+
+  <head>
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'research/research.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Inria+Sans&display=swap" rel="stylesheet" />
+  </head>
+    <body>
+        <div class="navbar">
+            <span class="title">Invent2Prevent</span>
+            <div class="v1_2"></div>
+            <div class="sub_navbar">
+                <a href="../../aboutus" class="v1_14">about us</a>
+                <a href="" class="v1_18">research</a>
+                <a href=".." class="v1_17">home</a>
+            </div>
+        </div>
+
+        <div class="mainContent">
+            <div class="explanation">
+
+                <div class="write-up-wrapper">
+                    <div class="explanation-content">
+                    <div class="write-up-intro">
+                        <p>
+                            Many people don’t think about the lives of people who live with disabilities. And to be honest, that group included us – the people behind Disable Violence. We started this journey as a motley group of data scientists, engineers, and policy researchers broadly interested in doing some good in the world. After spending countless weeks poring through FBI and Bureau of Justice hate crime statistics, doing legislative research on all 50 states, and generating dozens of visualizations a dozen different ways, we began piecing together a picture of anti-disability violence in America – a story that was both heartbreaking yet filled with hope for a better future.
+                            <br> <br>
+                            The following narrative is built on a backbone of painstaking policy analysis and data visualizations that were all created by us. What makes it unique is that it’s personalized to you. We created visualizations relevant to your responses and give you specific steps you can take to make changes local to where you live.
+                            <br> <br>
+                            While we have tried to be as comprehensive and detailed as we possibly could, we know that the history and fight against anti-disability violence can never fit into a clean, linear narrative. What you see below is merely the start of a much longer story. We hope it is as eye-opening for you as it was for us.
+                        </p>
+                    </div>
+
+                    <div class="write-up-body">
+                        <div class="explanation-title">
+                            <h1>INTRODUCTION</h1>
+                        </div>
+                        <div>
+                            <p>Anti-disability violence hits closer to home than you think. Even if it’s tucked away and kept out of the spotlight, it exists and deeply affects many of the people you share your homes, neighborhoods, and communities with. From 2016 onward, anti-disability violence reporting has experienced a sharp upward surge. </p>
+                        </div>
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v1.jpg' %}" width=600 height=450px padding = 40px alt="" >
+                        <div>
+                            <p>At the same time, anti-disability violence is one of the least analyzed and reported type of crime. It is often shunted to the side, talked about only in niche circles, and almost never gains traction in popular attention. </p>
+                            <p>
+                                Curt Decker, executive director of the National Disability Rights Network, says that it is difficult to get federal hate crime legislation to include people with disabilities because there is a widespread view that people don’t hate people with disabilities— “Who would do that? Who hates the disabled?”—or in some cases such crimes would be explained as crimes of convenience and not hate— “well, it’s just easier to rob someone who is blind. It is not necessarily an instance of hating someone for their disabilities.”
+                            </p>
+                        </div>
+                        <div><p>This viewpoint is a central uphill battle in the fight against anti-disability violence. A large part of this movement is classifying anti-disability violence as a “hate crime” as opposed to a “bias crime” in order to recognize  the severity and seriousness of such crimes and the impact they have on the most vulnerable in our society.
+                        </p></div>
+
+                        <div class="explanation-title">
+                            <h1>COMPARISONS</h1>
+                        </div>
+                        <br>
+                        <div><p>{{ user_age_pic }}Historically, persons with disabilities experience up to 3x the rate of victimization compared to people without disabilities.
+                        </p></div>
+                        {% load static %}
+                        <img src= "{% static 'research/used_viz/v2.jpg' %}" width=950 height=450px padding = 40px alt="" >
+
+
+                        <div><p>Whether looking along, age, race, or gender lines, we see shocking rates of victimization of people with disabilities compared to those without disabilities. Based on your responses earlier, we generated visualizations relevant to what you wrote. As you can see, someone who is demographically similar to you experiences significantly higher likelihoods of violence just by the fact that they live with a disability.
+                        </p></div>
+
+                        <!--customized data-->
+
+                        {% load static %}
+                        <img src= "{% static 'research/used_viz/comparative/age/50-64.jpg' %}" width=300 height=300 padding = 100px alt="" >
+                        {% load static %}
+                        <img src= "{% static 'research/used_viz/comparative/gender/male.jpg' %}" width=300 height=300 padding = 100px alt="" >
+
+
+                        <div><p>
+                            If you’re curious, here are the comprehensive graphs for violence against people with disabilities versus people without disabilities along age, race, and gender lines
+                        </p></div>
+
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v3.1.jpg' %}" width=500 height=450px padding = 40px alt="" >
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v3.2.jpg' %}" width=500 height=450px padding = 40px alt="" >
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v3.3.jpg' %}" width=1000 height=450px padding = 40px alt="" >
+                        <div><p>
+                            These comparisons become especially stark when looking at the demographics of people above the age of 65. In non-disabled populations, people 65 and older make up less than 24% of victimizations, but this percentage doubles to almost 48% when looking at fraction of victimizations.
+                        </p></div>
+                        <br>
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v4.1.jpg' %}" width=500 height=400px padding = 40px alt="" >
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v4.2.jpg' %}" width=500 height=400px padding = 40px alt="" >
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v5.jpg' %}" width=700 height=450px padding = 40px alt="" >
+                        <div><p>This fact is especially sobering given that individuals 65 or older make up almost half of the total disabled population.</p></div>
+
+
+                        <div class="explanation-title">
+                            <h1>OFFENDERS</h1>
+                        </div>
+                        <div><p>One of the most fundamental and heartbreaking problems of anti-disability violence is that it is caused by the very people who are in positions of trust and authority over the victim’s well-being. Whether it is financial and physical dependence on caretakers, the public and law enforcement’s misunderstanding of competency, or the murky waters of institutionalization, persons with disabilities are most at risk of being a victim of crime yet have the least agency to report these instances of crime.
+                        </p></div>
+                        <div><p>One 1994 study from the Behavioral Interventions journal found that about 82% of all cases of abuse and neglect of adults with developmental disabilities were carried out in institutions or group homes and that people who "were unlikely or unable to report or resist the abuse were the most common victims" (ABC).
+                        </p></div>
+                        <div><p>According to our visualizations, the top location of the reported victims was in their residence and homes, meaning that the issue of reporting extends to the ability to access reporting. Research and legislation need to focus on how victims with physical, emotional, and financial dependence on their caretakers/abusers can report crime and be investigated.
+                        </p></div>
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v6.1.jpg' %}" width=500 height=400px padding = 40px alt="" >
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v6.2.png' %}" width=500 height=400px padding = 40px alt="" >
+                        <div><p>This compounds the difficulty that persons with disabilities have with reporting crime done against them. Furthermore, a barrier against reporting is often the people who are trusted to carry out the law. There are many misunderstandings, especially among law enforcement groups, about an individual with disabilities being a competent witness.
+                        </p></div>
+                        <div><p>Moreover, reporting  against people that the individual relies on for assistance leads to a fear of retaliation, and possibly a fear that they won’t be believed by law enforcement agents. In on example given by BJS statistics, 19% of rapes or sexual assaults against persons with disabilities were reported to police, compared to 36% of those against persons without disabilities.
+                        </p></div>
+
+                        <div class="explanation-title">
+                            <h1>WHAT ARE WE DOING ABOUT IT?
+                            </h1>
+                        </div>
+                        <div>
+                            <p>
+                                An apparent problem in the prosecution of these bias crimes at the local level is that different states vary in their definition of “bias motivations,” differ in their evaluation of penalty enhancements, and their requirement on data collection on hate crimes. The variance in each state’s reporting policies means that these numbers shouldn’t be taken at face value. Often, states report higher numbers of anti-disability violence because they have stronger policies in place to record these instances of violence. The following maps should not necessarily be read as the amount of victimization per state, but as a reflection of how strong each state’s legislative policies are.
+                            </p>
+                        </div>
+                        {% load static %}
+                        <img src="{% static 'research/used_viz/v7.1.jpg' %}" width=1000 height=400px padding = 40px alt="" >
+                        <img src="{% static 'research/used_viz/v7.2.jpg' %}" width=1000 height=400px padding = 40px alt="" >
+                        <img src="{% static 'research/used_viz/v7.3.jpg' %}" width=1000 height=400px padding = 40px alt="" >
+                        <div>
+                            <p>
+                                Counterintuitively, states with the highest reports of victimization are the most progressive in fighting anti-disability violence because they have stronger policies. Indeed, we find that Ohio’s high case number is due to an emphasis on more reporting. On the other hand, states with almost non-existent case numbers (Arkansas, Idaho, Kentucky, Michigan, Mississippi, Montana, North Carolina, North Dakota, Ohio, South Carolina, South Dakota, West Virginia, and Wyoming) are the ones that do not include “disability” as a bias category even as it is federally defined as one. In these states, violence against a person with a disability would not be recorded as a hate crime.
+                            </p>
+                        </div>
+
+                        <div class="explanation-title">
+                            <h1>WHAT CAN I DO ABOUT IT?
+                            </h1>
+                        </div>
+                        <div>
+                            <p>
+                                The most prominent, recurring theme of the research conducted on both federal and state legislation on anti-disability hate crimes is that the majority of bias-motivated crimes are prosecuted at the local level.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                            Federal prosecution of anti-disability violence is possible under certain statutes, most notably 18 U.S.C. § 241, §249, and 42 U.S.C. §3631 and federal legislation includes statues on injury and discrimination done to disabled individuals based on their disabilities.  These statutes cover the prohibition of conspiracy to deprive another of federally-protected rights, the prohibition of willfully causing bodily injury to another because of [disability as bias, among other biases], and the prohibition of willful interference of force used against another because of [disability as bias, among other biases]. The Matthew Shepard and James Byrd Jr Hate Crimes Prevention Act of 2009 allows federal criminal prosecution of hate crimes.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                However, state-level legislation is by far the most impactful on individuals living with disabilities. Thus, legislation to punish bias-motivated crimes and the authority to do so needs to extend further and consider various constitutional provisions. In other words, every individual must step up to vote for state-level legislation that labels anti-disability violence as a hate crime, encourages more open reporting of anti-disability violence, and prevents housing and employment discrimination against persons with disabilities.
+                            </p>
+                        </div>
+
+                        <div>
+                            <p>
+                                Specifically, we must fight for:
+                                <ol>
+                                  <li>
+                                    Anti-disability bias crime reporting per state should be made mandatory so that statistical analysis on root causes and concern areas can be conducted.
+                                    </li>
+                                  <li>
+                                    We need to find ways to raise awareness for “invisible” crimes happening in residential locations and institutional homes and as such create avenues to report and detect these crimes
+                                    <ul>
+                                        <li>
+                                            Institutions and caretakers should be heavily regulated to be open to inspection for the occurrence of these crimes
+                                        </li>
+                                        <li>
+                                            Petition state and federal authorities to create report hotlines that guarantee discretion and safety.
+                                        </li>
+                                    </ul>
+                                  </li>
+                                </ol>
+
+
+                                In your state of [name the state], we identified existing legislation as well as organizations you can support.
+
+                            </p>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+        </div>
+
+    </body>
+</html>
