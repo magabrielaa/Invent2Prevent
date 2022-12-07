@@ -94,6 +94,12 @@ body {
     margin-right:20%;
 }
 
+.bold-text{
+    color: rgba(103,152,192,1);
+    font-family: Inria Sans;
+    font-weight: bold;
+}
+
 .visualizations {
     display: flex;
     flex-wrap: wrap;
